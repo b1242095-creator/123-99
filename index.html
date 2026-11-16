@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b18">
+  <meta name="description" content="可互動探索太陽與八大行星的太陽系軌道模擬器。">
+  <title>星際漫遊｜太陽系模擬器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="星際漫遊首頁"><span class="brand-mark" aria-hidden="true">✦</span><span>星際漫遊<small>SOLAR SYSTEM EXPLORER</small></span></a>
+      <div class="top-note"><span class="live-dot"></span> 太陽系 · 即時模擬</div>
+    </header>
+
+    <section class="intro" id="top" aria-labelledby="page-title">
+      <p class="eyebrow">一趟穿越宇宙的旅程</p>
+      <h1 id="page-title">我們的<span>太陽系</span></h1>
+      <p class="intro-copy">從太陽出發，探索八大行星運行的軌跡。</p>
+    </section>
+
+    <section class="explorer" aria-label="太陽系互動模擬器">
+      <div class="scene" id="scene" aria-label="太陽與八大行星軌道圖">
+        <div class="scene-vignette" aria-hidden="true"></div>
+        <div class="sun-halo" aria-hidden="true"></div>
+        <div class="sun" role="img" aria-label="太陽"><span class="sun-label">太陽</span></div>
+        <div class="orbits" id="orbits" aria-hidden="true"></div>
+        <div class="planets" id="planets"></div>
+        <div class="scene-caption"><span class="caption-line"></span> 八大行星 · 軌道示意圖 <span class="caption-tag">非實際比例</span></div>
+        <button class="scene-help" id="help-button" type="button" aria-label="顯示模擬器說明" title="模擬器說明">?</button>
+      </div>
+
+      <aside class="side-panel" aria-label="模擬器控制與行星資訊">
+        <div class="panel-heading"><div><p class="eyebrow">控制中心</p><h2>探索旅程</h2></div><span class="orbit-icon" aria-hidden="true">◎</span></div>
+        <p class="panel-description">調整行星運行，或選擇一顆行星深入認識。</p>
+        <div class="control-row">
+          <button class="play-button" id="play-button" type="button" aria-label="暫停動畫"><span class="play-icon" aria-hidden="true">Ⅱ</span><span class="play-text">暫停運行</span></button>
+          <button class="reset-button" id="reset-button" type="button" aria-label="重設行星位置"><span aria-hidden="true">↺</span> 重設</button>
+        </div>
+        <div class="speed-control">
+          <div class="speed-label"><label for="speed-range">公轉速度</label><output id="speed-output" for="speed-range">1.0×</output></div>
+          <input id="speed-range" type="range" min="0.25" max="3" step="0.25" value="1" aria-label="調整公轉速度">
+          <div class="range-ends"><span>慢</span><span>快</span></div>
+        </div>
+
+        <div class="planet-section-heading"><h3>行星導覽</h3><span>選擇以查看資訊</span></div>
+        <div class="planet-list" id="planet-list" aria-label="選擇行星"></div>
+
+        <div class="planet-detail" id="planet-detail" aria-live="polite">
+          <div class="detail-top"><span class="detail-symbol" id="detail-symbol"></span><div><p class="detail-kicker">目前探索</p><h3 id="detail-name">地球</h3></div><span class="detail-order" id="detail-order">03</span></div>
+          <p class="detail-copy" id="detail-copy"></p>
+          <div class="detail-facts"><div><span>日距順序</span><strong id="detail-distance"></strong></div><div><span>公轉週期</span><strong id="detail-year"></strong></div></div>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="footer"><span>以好奇心為引，向星空出發。</span><span>互動式太陽系探索 <span class="footer-star">✦</span></span></footer>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
